@@ -17,9 +17,9 @@ server.get('/:str', function(req,res) {
         natural = moment(time).format('MMMM D, YYYY');
         res.send(JSON.stringify({unix: Number(infoDecoded), natural: natural}));
     } else if (/^[a-zA-Z]+\s*[0-9]{1,2},\s*[0-9]{1,4}$/.test(infoDecoded)){
-        time = new Date(infoDecoded).valueOf()/1000;
+        time = new Date(infoDecoded).valueOf();
         natural = moment(time).format('MMMM D, YYYY');
-        res.send(JSON.stringify({unix: time, natural: natural}));
+        res.send(JSON.stringify({unix: time/1000, natural: natural}));
     } else {
         res.send(JSON.stringify({unix: null, natural: null}));
     }
