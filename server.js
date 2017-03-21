@@ -3,6 +3,7 @@ var urlencode = require('urlencode');
 var moment = require('moment');
 
 var server = express();
+var port = process.env.port || 8080;
 
 server.get('/:str', function(req,res) {
     var infoDecoded = urlencode.decode(req.params.str);
@@ -16,6 +17,6 @@ server.get('/:str', function(req,res) {
         res.send({unix: time, natural: infoDecoded});
     }
 })
-server.listen(8080, function(){
-    console.log('server is running');
+server.listen(port, function(){
+    console.log('server is running on', port);
 });
