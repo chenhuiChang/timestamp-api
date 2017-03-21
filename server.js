@@ -3,7 +3,7 @@ var urlencode = require('urlencode');
 var moment = require('moment');
 
 var server = express();
-var port = process.env.port || 8080;
+var port = process.env.PORT || 8080;
 
 server.get('/:str', function(req,res) {
     var infoDecoded = urlencode.decode(req.params.str);
